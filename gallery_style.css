@@ -6,26 +6,26 @@
 
 body {
     background-color: #000000;
-    font-family: Arial, Helvetica, sans-serif; /* Плоский, простой шрифт */
+    font-family: Arial, Helvetica, sans-serif; 
     color: #555555;
     padding: 60px 20px;
     
-    /* Центрируем всё содержимое страницы */
+    
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Контейнер страницы (собирает заголовок и арты в один ровный блок) */
+/* Контейнер страницы */
 .gallery-wrapper {
     width: 100%;
-    max-width: 600px; /* Ограничиваем ширину, чтобы сетка не расползалась на широких мониторах */
+    max-width: 600px; 
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-/* Верхняя панель навигации над заголовком */
+
 .nav-block {
     margin-bottom: 10px;
 }
@@ -45,14 +45,15 @@ body {
 
 /* Заголовок архива */
 .page-title {
-    font-size: 1rem;
-    color: #333333;
-    letter-spacing: 1px;
-    text-transform: lowercase;
+    font-size: 11px; 
+    color: #222222; 
+    font-weight: 100; 
+    letter-spacing: 2px; 
+    text-transform: lowercase; 
     margin-bottom: 20px;
 }
 
-/* Сетка картинок (выстроит их ровно в ряд, а если не влезут — перенесет на новую строку) */
+
 .gallery-grid {
     display: flex;
     gap: 15px;
