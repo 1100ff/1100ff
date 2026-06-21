@@ -4,31 +4,19 @@
     padding: 0;
 }
 
-/* Настройка плавной прокрутки страницы */
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     background-color: #000000;
     font-family: 'Courier New', Courier, monospace;
-    color: #555555;
-}
-
-/* Первый экран с лицом */
-.screen-view {
     height: 100vh;
-    width: 100%;
-    position: relative;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
 }
 
 .center-container {
     position: relative;
-    padding: 40px;
+    padding: 40px; /* Отступ кнопок от рамки */
 }
 
 .eye-tracker {
@@ -55,7 +43,6 @@ body {
     transition: transform 0.1s ease-out; pointer-events: none;
 }
 
-/* Угловые кнопки вокруг лица */
 .corner-menu {
     position: absolute;
     color: #555555;
@@ -75,86 +62,3 @@ body {
 .top-right { top: 10px; right: 0; }
 .bottom-left { bottom: 10px; left: 0; }
 .bottom-right { bottom: 10px; right: 0; }
-
-
-/* --- РАЗДЕЛ ГАЛЕРЕИ (ВТОРОЙ ЭКРАН) --- */
-.gallery-section {
-    min-height: 100vh;
-    padding: 60px 40px;
-    background-color: #000000;
-    border-top: 1px solid #111111; /* Тонкая граница раздела */
-}
-
-.section-title {
-    font-size: 1.2rem;
-    color: #333333;
-    margin-bottom: 40px;
-    letter-spacing: 2px;
-}
-
-.gallery-grid {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-/* Стили превьюшек артов */
-.art-item img {
-    width: 180px; 
-    height: 180px;
-    object-fit: cover;
-    cursor: pointer;
-    border: 1px solid #111111;
-    filter: grayscale(100%) brightness(70%);
-    transition: all 0.3s ease;
-}
-
-.art-item img:hover {
-    filter: grayscale(0%) brightness(100%);
-    border-color: #333333;
-}
-
-
-/* --- СТИЛИ ВСПОЛЫВАЮЩЕГО ОКНА (МОДАЛКИ) --- */
-.modal {
-    display: none; 
-    position: fixed;
-    z-index: 100; 
-    left: 0; top: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.96); 
-    overflow: auto;
-}
-
-.modal-content {
-    margin: auto;
-    display: block;
-    max-width: 85%;
-    max-height: 70vh;
-    object-fit: contain;
-    margin-top: 60px;
-    border: 1px solid #111111;
-}
-
-.modal-caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
-    color: #666666;
-    font-size: 0.8rem;
-    padding: 25px 0;
-    line-height: 1.6;
-    letter-spacing: 0.5px;
-}
-
-.close-modal {
-    position: absolute;
-    top: 20px; right: 35px;
-    color: #444444;
-    font-size: 40px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.close-modal:hover { color: #ffffff; }
