@@ -9,41 +9,18 @@ body {
     font-family: 'Courier New', Courier, monospace;
     height: 100vh;
     overflow: hidden;
-    position: relative;
-}
-
-/* Стили для угловых кнопок */
-.corner-menu {
-    position: absolute;
-    color: #555555;
-    text-decoration: none;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-    z-index: 10;
-    padding: 30px; /* Чтобы по кнопкам было легче попасть */
-}
-
-.corner-menu:hover {
-    color: #ffffff;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
-}
-
-/* Координаты углов */
-.top-left { top: 0; left: 0; }
-.top-right { top: 0; right: 0; }
-.bottom-left { bottom: 0; left: 0; }
-.bottom-right { bottom: 0; right: 0; }
-
-/* Центрирование лица */
-.center-container {
-    width: 100%;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* Общий контейнер, который собирает и макет, и кнопки вместе */
+.center-container {
+    position: relative;
+    padding: 40px; /* Это отступ (расстояние) между кнопками и рамкой картинки */
+}
+
+/* Главный интерактивный блок (рама для лица) */
 .eye-tracker {
     position: relative;
     width: 450px;  /* Ширина твоего центрального арта */
@@ -51,6 +28,7 @@ body {
     background: #030303;
     border: 1px solid #111111;
     overflow: hidden;
+    z-index: 5;
 }
 
 /* Слой с лицом (сверху) */
@@ -62,7 +40,7 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: 2;
-    pointer-events: none; /* Чтобы мышка "кликала" сквозь лицо */
+    pointer-events: none;
 }
 
 /* Слой со зрачками (снизу) */
@@ -70,11 +48,48 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100%; /* Глаза рисуются в том же масштабе, что и лицо */
+    width: 100%;
     height: 100%;
     object-fit: cover;
     z-index: 1;
     transform: translate(-50%, -50%);
-    transition: transform 0.1s ease-out; /* Плавность движения глаз */
+    transition: transform 0.1s ease-out;
     pointer-events: none;
+}
+
+/* Базовые стили для кнопок меню */
+.corner-menu {
+    position: absolute;
+    color: #555555;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    z-index: 10;
+}
+
+.corner-menu:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+/* Теперь координаты кнопок отсчитываются от углов ЦЕНТРАЛЬНОГО блока */
+.top-left {
+    top: 10px;
+    left: 0;
+}
+
+.top-right {
+    top: 10px;
+    right: 0;
+}
+
+.bottom-left {
+    bottom: 10px;
+    left: 0;
+}
+
+.bottom-right {
+    bottom: 10px;
+    right: 0;
 }
