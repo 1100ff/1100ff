@@ -3,12 +3,15 @@
     margin: 0;
     padding: 0;
 }
-
 body {
     background-color: #000000;
-    font-family: 'Courier New', Courier, monospace;
-    color: #555555;
-    padding: 40px;
+    font-family: Arial, Helvetica, sans-serif; /* Вот этот плоский, простой шрифт */
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 /* Верхняя панель с кнопкой возврата */
