@@ -3,26 +3,39 @@
     margin: 0;
     padding: 0;
 }
+
 body {
     background-color: #000000;
-    font-family: Arial, Helvetica, sans-serif; /* Вот этот плоский, простой шрифт */
-    height: 100vh;
-    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif; /* Плоский, простой шрифт */
+    color: #555555;
+    padding: 60px 20px;
+    
+    /* Центрируем всё содержимое страницы */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-
 }
 
-/* Верхняя панель с кнопкой возврата */
+/* Контейнер страницы (собирает заголовок и арты в один ровный блок) */
+.gallery-wrapper {
+    width: 100%;
+    max-width: 600px; /* Ограничиваем ширину, чтобы сетка не расползалась на широких мониторах */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Верхняя панель навигации над заголовком */
 .nav-block {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 .back-link {
     color: #333333;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: lowercase;
     transition: color 0.3s ease;
 }
 
@@ -30,42 +43,39 @@ body {
     color: #ffffff;
 }
 
-/* Контейнер страницы */
-.gallery-wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
+/* Заголовок архива */
 .page-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #333333;
-    margin-bottom: 30px;
     letter-spacing: 1px;
+    text-transform: lowercase;
+    margin-bottom: 20px;
 }
 
-/* Сетка картинок */
+/* Сетка картинок (выстроит их ровно в ряд, а если не влезут — перенесет на новую строку) */
 .gallery-grid {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     flex-wrap: wrap;
 }
 
+/* Квадраты артов */
 .art-item img {
-    width: 160px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     cursor: pointer;
     border: 1px solid #111111;
-    filter: grayscale(100%) brightness(60%);
+    filter: grayscale(100%) brightness(50%);
     transition: all 0.3s ease;
 }
 
 .art-item img:hover {
     filter: grayscale(0%) brightness(100%);
-    border-color: #444444;
+    border-color: #333333;
 }
 
-/* Окно фулла */
+/* --- ВСПЛЫВАЮЩЕЕ ОКНО (МОДАЛКА) --- */
 .modal {
     display: none;
     position: fixed;
@@ -89,20 +99,22 @@ body {
     margin: auto;
     display: block;
     width: 80%;
-    max-width: 600px;
+    max-width: 500px;
     text-align: center;
-    color: #666666;
-    font-size: 0.85rem;
+    color: #555555;
+    font-size: 0.8rem;
     padding: 20px 0;
-    line-height: 1.6;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
 }
 
 .close-modal {
     position: absolute;
     top: 20px; right: 35px;
-    color: #444444;
+    color: #333333;
     font-size: 40px;
     cursor: pointer;
+    transition: color 0.3s ease;
 }
 
 .close-modal:hover { color: #ffffff; }
