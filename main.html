@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1100ff / узел</title>
+    <link rel="stylesheet" href="main_style.css">
+</head>
+<body>
+
+    <a href="#gallery" class="corner-menu top-left">gallery</a>
+    <a href="#me" class="corner-menu top-right">me</a>
+    <a href="#journal" class="corner-menu bottom-left">journal</a>
+    <a href="#secret" class="corner-menu bottom-right">???</a>
+
+    <div class="center-container">
+        <div class="eye-tracker" id="tracker">
+            <img src="eyes.png" alt="" class="eyes" id="eyes">
+            <img src="face.png" alt="" class="face">
+        </div>
+    </div>
+
+    <script>
+        const tracker = document.getElementById('tracker');
+        const eyes = document.getElementById('eyes');
+
+        document.addEventListener('mousemove', (e) => {
+            if (!tracker || !eyes) return;
+
+            // Получаем центр блока с лицом
+            const rect = tracker.getBoundingClientRect();
+            const trackerX = rect.left + rect.width / 2;
+            const trackerY = rect.top + rect.height / 2;
+
+            // Вычисляем угол между лицом и курсором
+            const angle = Math.atan2(e.clientY - trackerY, e.clientX - trackerX);
+            
+            // Радиус движения зрачков (в пикселях). Насколько сильно они могут косить.
+            const distance = 8; 
+
+            // Считаем смещение по осям X и Y
+            const x = Math.cos(angle) * distance;
+            const y = Math.sin(angle) * distance;
+
+            // Сдвигаем зрачки
+            eyes.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+        });
+    </script>
+
+</body>
+</html>
