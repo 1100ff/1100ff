@@ -8,50 +8,19 @@
 </head>
 <body>
 
-    <!-- ПЕРВЫЙ ЭКРАН: ЛИЦО И МЕНЮ -->
-    <div class="screen-view">
-        <!-- Угловое меню -->
-        <a href="#gallery-section" class="corner-menu top-left">gallery</a>
-        <a href="#me" class="corner-menu top-right">me</a>
-        <a href="#journal" class="corner-menu bottom-left">journal</a>
+    <div class="center-container">
+        <a href="gallery.html" class="corner-menu top-left">gallery</a>
+        <a href="me.html" class="corner-menu top-right">me</a>
+        <a href="journal.html" class="corner-menu bottom-left">journal</a>
         <a href="#secret" class="corner-menu bottom-right">???</a>
 
-        <!-- Центр с глазами -->
-        <div class="center-container">
-            <div class="eye-tracker" id="tracker">
-                <img src="eyes.png" alt="" class="eyes" id="eyes">
-                <img src="face.png" alt="" class="face">
-            </div>
+        <div class="eye-tracker" id="tracker">
+            <img src="eyes.png" alt="" class="eyes" id="eyes">
+            <img src="face.png" alt="" class="face">
         </div>
     </div>
 
-    <!-- ВТОРОЙ ЭКРАН: РАЗДЕЛ ГАЛЕРЕИ (скроллится вниз) -->
-    <div id="gallery-section" class="gallery-section">
-        <h2 class="section-title">gallery</h2>
-        
-        <div class="gallery-grid">
-            <!-- Первый арт (пример) -->
-            <div class="art-item">
-                <img src="assets/art1.png" alt="Адальбер" data-text="Адальбер душка как плюшевый мишка он тибетский мастиф, просто дружелюбный дедушка но так же очень спокоен!">
-            </div>
-            
-            <!-- Второй арт (пример) -->
-            <div class="art-item">
-                <img src="assets/art2.png" alt="Зарисовка" data-text="Невзрачный лорный набросок, архивный кадр.">
-            </div>
-        </div>
-    </div>
-
-    <!-- ВСПОМОГАТЕЛЬНОЕ МОДАЛЬНОЕ ОКНО ДЛЯ ФУЛЛОВ -->
-    <div id="art-modal" class="modal">
-        <span class="close-modal">&times;</span>
-        <img class="modal-content" id="full-img">
-        <div id="modal-caption" class="modal-caption"></div>
-    </div>
-
-    <!-- СКРИПТЫ: СЛЕДЖЕНИЕ ГЛАЗ + ОТКРЫТИЕ АРТОВ -->
     <script>
-        // 1. Код слежения за курсором
         const tracker = document.getElementById('tracker');
         const eyes = document.getElementById('eyes');
 
@@ -66,23 +35,6 @@
             const y = Math.sin(angle) * distance;
             eyes.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
         });
-
-        // 2. Код модального окна (клик на арт -> показ приписки)
-        const modal = document.getElementById('art-modal');
-        const modalImg = document.getElementById('full-img');
-        const captionText = document.getElementById('modal-caption');
-        const closeModal = document.querySelector('.close-modal');
-
-        document.querySelectorAll('.art-item img').forEach(img => {
-            img.addEventListener('click', function() {
-                modal.style.display = "block";
-                modalImg.src = this.src;
-                captionText.innerHTML = this.getAttribute('data-text');
-            });
-        });
-
-        closeModal.addEventListener('click', () => { modal.style.display = "none"; });
-        modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = "none"; });
     </script>
 
 </body>
