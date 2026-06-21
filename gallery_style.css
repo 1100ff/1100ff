@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    color: #555555;
+    padding: 40px;
+}
+
+/* Верхняя панель с кнопкой возврата */
+.nav-block {
+    margin-bottom: 40px;
+}
+
+.back-link {
+    color: #333333;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #ffffff;
+}
+
+/* Контейнер страницы */
+.gallery-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 1.1rem;
+    color: #333333;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* Сетка картинок */
+.gallery-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.art-item img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 1px solid #111111;
+    filter: grayscale(100%) brightness(60%);
+    transition: all 0.3s ease;
+}
+
+.art-item img:hover {
+    filter: grayscale(0%) brightness(100%);
+    border-color: #444444;
+}
+
+/* Окно фулла */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.97);
+    overflow: auto;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 85%;
+    max-height: 75vh;
+    object-fit: contain;
+    margin-top: 40px;
+    border: 1px solid #111111;
+}
+
+.modal-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    color: #666666;
+    font-size: 0.85rem;
+    padding: 20px 0;
+    line-height: 1.6;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px; right: 35px;
+    color: #444444;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.close-modal:hover { color: #ffffff; }
