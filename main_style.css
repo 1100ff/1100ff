@@ -22,11 +22,11 @@ body {
 /* Окно трекера */
 .eye-tracker {
     position: relative;
-    width: 400px;  /* Сделали квадратным под пропорции твоего лица */
-    height: 400px; 
+    width: 150px;  /* Сделали квадратным под пропорции твоего лица */
+    height: 150px; 
     
     /* ХИТРОСТЬ: Делаем белый центр для глаз, но оставляем прозрачные/черные углы */
-    background: radial-gradient(circle, #ffffff 60%, rgba(0,0,0,0) 65%);
+    background: radial-gradient(circle, #7c7c7c 60%, rgba(0,0,0,0) 65%);
     background-color: #000000;
     
     border: 1px solid #111111;
