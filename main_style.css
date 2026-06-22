@@ -62,3 +62,25 @@ body {
 .top-right { top: 10px; right: 0; }
 .bottom-left { bottom: 10px; left: 0; }
 .bottom-right { bottom: 10px; right: 0; }
+
+
+
+
+
+.eyes-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  
+    width: 80%; /* Пример, настрой под свою картинку */
+    height: auto; 
+    z-index: 1; /* Лежит поверх зрачков (у которых z-index: 1 в оригинале, поменяй их на 0) */
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+
+.eyes {
+    /* ... твои стили ... */
+    z-index: 0; /* Тепер зрачки ниже всех */
+}
