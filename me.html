@@ -8,53 +8,81 @@
 </head>
 <body>
 
-    <div class="me-wrapper">
-        <div class="nav-block">
-            <a href="main.html" class="back-link">back</a>
-        </div>
+    <a href="main.html" class="back-link">← back</a>
 
-        <div class="profile-layout">
+    <div class="me-container">
+        
+        <section class="profile-section">
+            <h1 class="main-title">HELLOWS?</h1>
             
-            <div class="info-column">
-                <h1 class="profile-title">hellows, im HURT. or michel/misha</h1>
-                <p class="profile-subtitle">im schizo-paranoid, not friendly</p>
+            <div class="photo-and-text">
+                <div class="horizontal-photo">
+                    <img src="https://i.pinimg.com/originals/5e/59/0b/5e590b4f79b8810bee7539ae44df37c3.gif" alt="me">
+                </div>
                 
-                <div class="about-text">
-                    <span class="label">love:</span>
-                    <p>text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</p>
+                <div class="bio-text">
+                    <p class="name">Im HURT or michel</p>
+                    <p class="status">сосал</p>
+                    <p class="sub-status"> </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="interests-layout">
+            
+            <div class="interests-top-row">
+                <div class="interests-text-left">
+                    <p>сосал</p>
+                </div>
+
+                <div class="interest-item-small">
+                    <div class="black-photo-box small-box">
+                        <img src="https://i.pinimg.com/originals/c3/11/67/c3116790e5192591ed9dd42ce67644a0.gif" alt="kitten">
+                    </div>
+                    <span class="photo-caption">old and tired</span>
                 </div>
             </div>
 
-            <div class="media-column">
-                
-                <div class="media-block">
-                    <h2 class="block-title">// games</h2>
-                    <div class="media-grid">
-                        <div class="media-item">
-                            <img src="assets/game1.gif" alt="game loop">
-                        </div>
-                        <div class="media-item">
-                            <img src="assets/game2.png" alt="game log">
-                        </div>
-                    </div>
+            <!-- Убрали лишние внешние div, оставив чистую структуру -->
+            <div class="interest-item-big clickable-pic">
+                <div class="black-photo-box big-box">
+                    <img src="chart.png" alt="Фулл фото 1">
                 </div>
-
-                <div class="media-block">
-                    <h2 class="block-title">// music</h2>
-                    <div class="media-grid">
-                        <div class="media-item">
-                            <img src="assets/album1.png" alt="album cover">
-                        </div>
-                        <div class="media-item">
-                            <img src="assets/album2.gif" alt="music loop">
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
-        </div>
+            <div class="interest-item-big clickable-pic">
+                <div class="black-photo-box big-box">
+                    <img src="chart (1).png" alt="Фулл фото 2">
+                </div>
+            </div>
+
+        </section>
+
     </div>
+
+    <div id="lightbox" class="lightbox">
+        <img id="lightbox-img" src="" alt="Full view">
+    </div>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const clickablePics = document.querySelectorAll('.clickable-pic img');
+
+        clickablePics.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+
+        // Полная защита: блокирует правую кнопку мыши на всем сайте
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
 
 </body>
 </html>
